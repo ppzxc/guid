@@ -1,6 +1,6 @@
 package com.github.ppzxc.guid;
 
-public abstract class AbstractIdGenerator implements IdGenerator {
+public abstract class AbstractGuidGenerator implements GuidGenerator {
 
   private final int timestampBitSize;
   private final int identifierBitSize;
@@ -8,19 +8,21 @@ public abstract class AbstractIdGenerator implements IdGenerator {
   private final int totalBitSize;
   private final long maximumIdentifierId;
   private final long maximumSequence;
+  private final long applicationEpoch;
 
   private long lastTimestamp;
   private long sequence;
 
-  protected AbstractIdGenerator(int timestampBitSize, int identifierBitSize, int sequenceBitSize, long maximumIdentifierId,
-    long maximumSequence) {
+  protected AbstractGuidGenerator(int timestampBitSize, int identifierBitSize, int sequenceBitSize, long maximumIdentifierId,
+    long maximumSequence, long applicationEpoch) {
     this.timestampBitSize = timestampBitSize;
     this.identifierBitSize = identifierBitSize;
     this.sequenceBitSize = sequenceBitSize;
     this.totalBitSize = timestampBitSize + identifierBitSize + sequenceBitSize;
     this.maximumIdentifierId = maximumIdentifierId;
     this.maximumSequence = maximumSequence;
-    this.lastTimestamp = getCurrentTimestamp();
+    this.applicationEpoch = applicationEpoch;
+    this.lastTimestamp = -1L;
     this.sequence = -1L;
   }
 
@@ -40,7 +42,7 @@ public abstract class AbstractIdGenerator implements IdGenerator {
     if (currentTimestamp == lastTimestamp) {
       sequence = (sequence + 1) & maximumSequence;
       if (sequence == 0L) {
-        currentTimestamp = getNextTimestamp();
+        currentTimestamp = getNextTimestamp(currentTimestamp);
       }
     } else {
       sequence = 0L;
@@ -56,21 +58,19 @@ public abstract class AbstractIdGenerator implements IdGenerator {
     }
 
     // fifth step: calculate id
-    return create(
-      currentTimestamp - APPLICATION_EPOCH_TIME << totalBitSize - timestampBitSize
+    return create(currentTimestamp << totalBitSize - timestampBitSize
         | identifier << sequenceBitSize // totalBitSize - timestampBitSize - identifierBitSize
         | sequence);
   }
 
-  private long getNextTimestamp() {
-    long newCurrentTimestamp = getCurrentTimestamp();
-    while (newCurrentTimestamp <= lastTimestamp) {
-      newCurrentTimestamp = getCurrentTimestamp();
+  private long getNextTimestamp(long currentTimestamp) {
+    while (currentTimestamp == lastTimestamp) {
+      currentTimestamp = getCurrentTimestamp();
     }
-    return newCurrentTimestamp;
+    return currentTimestamp;
   }
 
   private long getCurrentTimestamp() {
-    return System.currentTimeMillis();
+    return System.currentTimeMillis() - applicationEpoch;
   }
 }

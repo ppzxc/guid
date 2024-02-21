@@ -28,7 +28,7 @@ package com.github.ppzxc.guid;
  *   - 자동 증분값으로 동일한 ms (*.**1) 시간대에 생성 가능한 최대 ID는 4,096개
  *  </pre>
  */
-public abstract class PartitionIdGenerator extends AbstractIdGenerator {
+public abstract class PartitionedGuidGenerator extends AbstractGuidGenerator {
 
   public static final int TIMESTAMP_BIT_SIZE = 41;
   public static final int PARTITION_ID_BIT_SIZE = 10;
@@ -39,8 +39,8 @@ public abstract class PartitionIdGenerator extends AbstractIdGenerator {
   public static final long PARTITION_ID_BIT_WISE = Long.parseLong("1".repeat(PARTITION_ID_BIT_SIZE), 2);
   public static final long SEQUENCE_BIT_WISE = Long.parseLong("1".repeat(SEQUENCE_BIT_SIZE), 2);
 
-  protected PartitionIdGenerator() {
-    super(TIMESTAMP_BIT_SIZE, PARTITION_ID_BIT_SIZE, SEQUENCE_BIT_SIZE, MAXIMUM_PARTITION_ID, MAXIMUM_SEQUENCE);
+  protected PartitionedGuidGenerator() {
+    super(TIMESTAMP_BIT_SIZE, PARTITION_ID_BIT_SIZE, SEQUENCE_BIT_SIZE, MAXIMUM_PARTITION_ID, MAXIMUM_SEQUENCE, APPLICATION_EPOCH_TIME);
   }
 
   @Override

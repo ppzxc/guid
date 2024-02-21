@@ -1,2 +1,12 @@
-package com.github.ppzxc.guid;public class GUID {
+package com.github.ppzxc.guid;
+
+public interface GUID {
+
+  long id();
+
+  long timestamp();
+
+  long partitionId();
+
+  long sequence();
 }
