@@ -35,9 +35,9 @@ class SnowflakeGuidTest {
     SnowflakeGuid actual = new SnowflakeGuid(id);
 
     // then
-    assertThat(actual.id()).isEqualTo(id);
+    assertThat(actual.guid()).isEqualTo(id);
     assertThat(actual.timestamp()).isEqualTo(currentTimestamp);
-    assertThat(actual.partitionId()).isEqualTo(nodeId);
+    assertThat(actual.identifier()).isEqualTo(nodeId);
     assertThat(actual.sequence()).isEqualTo(sequence);
   }
 

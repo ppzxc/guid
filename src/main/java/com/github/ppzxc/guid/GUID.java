@@ -2,11 +2,11 @@ package com.github.ppzxc.guid;
 
 public interface GUID {
 
-  long id();
+  long guid();
 
   long timestamp();
 
-  long partitionId();
+  long identifier();
 
   long sequence();
 }

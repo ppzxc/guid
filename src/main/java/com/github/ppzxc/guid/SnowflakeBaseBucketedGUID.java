@@ -8,9 +8,10 @@ import static com.github.ppzxc.guid.SnowflakeGuidGenerator.SEQUENCE_BIT_WISE;
 
 import java.sql.Timestamp;
 
-public record SnowflakeGuid(
-  long id
-) implements GUID {
+public record SnowflakeBaseBucketedGUID(
+  long id,
+  int bucketSize
+) implements BucketedGUID {
 
   @Override
   public long guid() {
@@ -34,7 +35,12 @@ public record SnowflakeGuid(
 
   @Override
   public String toString() {
-    return "SnowflakeGuid{id=%d, timestamp=%s, nodeId=%d, sequence=%d}".formatted(id,
-      new Timestamp(timestamp()), identifier(), sequence());
+    return "SnowflakeBaseBucketedGUID{id=%d, timestamp=%s, nodeId=%d, sequence=%d, bucket=%d}".formatted(id,
+      new Timestamp(timestamp()), identifier(), sequence(), bucket());
+  }
+
+  @Override
+  public int bucket() {
+    return (int) ((id >> (NODE_ID_BITS + SEQUENCE_BITS)) / bucketSize);
   }
 }

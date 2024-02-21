@@ -14,12 +14,17 @@ public record PartitionedGuid(
 ) implements GUID {
 
   @Override
+  public long guid() {
+    return id;
+  }
+
+  @Override
   public long timestamp() {
     return (id >> TOTAL_BIT_SIZE - TIMESTAMP_BIT_SIZE) + APPLICATION_EPOCH_TIME;
   }
 
   @Override
-  public long partitionId() {
+  public long identifier() {
     return (id >> SEQUENCE_BIT_SIZE) & PARTITION_ID_BIT_WISE;
   }
 
@@ -31,6 +36,6 @@ public record PartitionedGuid(
   @Override
   public String toString() {
     return "PartitionedGuid{id=%d, timestamp=%s, partitionId=%d, sequence=%d}".formatted(id,
-      new Timestamp(timestamp()), partitionId(), sequence());
+      new Timestamp(timestamp()), identifier(), sequence());
   }
 }

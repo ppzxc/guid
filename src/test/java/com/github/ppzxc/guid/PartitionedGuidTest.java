@@ -36,9 +36,9 @@ class PartitionedGuidTest {
     PartitionedGuid actual = new PartitionedGuid(id);
 
     // then
-    assertThat(actual.id()).isEqualTo(id);
+    assertThat(actual.guid()).isEqualTo(id);
     assertThat(actual.timestamp()).isEqualTo(currentTimestamp);
-    assertThat(actual.partitionId()).isEqualTo(partitionId);
+    assertThat(actual.identifier()).isEqualTo(partitionId);
     assertThat(actual.sequence()).isEqualTo(sequence);
   }
 

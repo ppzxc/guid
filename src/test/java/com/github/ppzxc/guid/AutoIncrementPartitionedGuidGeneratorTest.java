@@ -18,9 +18,9 @@ class AutoIncrementPartitionedGuidGeneratorTest {
     GUID actual = given.next();
 
     // then
-    assertThat(actual.id()).isNotNegative().isPositive();
+    assertThat(actual.guid()).isNotNegative().isPositive();
     assertThat(actual.timestamp()).isGreaterThanOrEqualTo(givenTimestamp);
-    assertThat(actual.partitionId()).isZero();
+    assertThat(actual.identifier()).isZero();
     assertThat(actual.sequence()).isZero();
   }
 
@@ -31,8 +31,8 @@ class AutoIncrementPartitionedGuidGeneratorTest {
     GuidGenerator given = AutoIncrementPartitionedGuidGenerator.of(1022);
 
     // when, then
-    assertThat(given.next().partitionId()).isEqualTo(1022);
-    assertThat(given.next().partitionId()).isEqualTo(1023);
-    assertThat(given.next().partitionId()).isEqualTo(0);
+    assertThat(given.next().identifier()).isEqualTo(1022);
+    assertThat(given.next().identifier()).isEqualTo(1023);
+    assertThat(given.next().identifier()).isEqualTo(0);
   }
 }
