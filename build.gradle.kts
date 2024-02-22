@@ -1,22 +1,10 @@
-import org.springframework.boot.gradle.tasks.bundling.BootJar
-
 plugins {
     id("java")
-    id("org.springframework.boot") version "3.2.2"
-    id("io.spring.dependency-management") version "1.1.4"
 }
 
 allprojects {
     group = "com.github.ppzxc"
-    version = "0.0.2"
-
-    tasks.withType<Jar> {
-        enabled = true
-    }
-
-    tasks.withType<BootJar> {
-        enabled = false
-    }
+    version = "0.0.3"
 
     repositories {
         mavenCentral()
@@ -25,8 +13,6 @@ allprojects {
 
 subprojects {
     apply(plugin = "java")
-    apply(plugin = "org.springframework.boot")
-    apply(plugin = "io.spring.dependency-management")
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
