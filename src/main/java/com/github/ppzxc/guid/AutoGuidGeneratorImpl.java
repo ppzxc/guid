@@ -1,20 +1,14 @@
-package com.github.ppzxc.guid.core;
-
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.MAX_NODE_ID;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.MAX_SEQUENCE;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE;
+package com.github.ppzxc.guid;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class AutoGuidGeneratorImpl extends AbstractGuidGenerator implements GuidGenerator {
 
-  private static final long CALIBRATION_MAX = MAX_NODE_ID + 1;
+  private static final long CALIBRATION_MAX = SnowflakeGuidGeneratorImpl.MAX_NODE_ID + 1;
   private final AtomicLong autoIncrement;
 
   private AutoGuidGeneratorImpl(AtomicLong autoIncrement) {
-    super(EPOCH_BIT_SIZE, NODE_ID_BIT_SIZE, SEQUENCE_BIT_SIZE, MAX_NODE_ID, MAX_SEQUENCE, APPLICATION_EPOCH_TIME);
+    super(SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE, SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE, SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE, SnowflakeGuidGeneratorImpl.MAX_NODE_ID, SnowflakeGuidGeneratorImpl.MAX_SEQUENCE, APPLICATION_EPOCH_TIME);
     this.autoIncrement = autoIncrement;
   }
 

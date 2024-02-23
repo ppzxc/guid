@@ -1,4 +1,4 @@
-package com.github.ppzxc.guid.core;
+package com.github.ppzxc.guid;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
