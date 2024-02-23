@@ -1,9 +1,9 @@
-package com.github.ppzxc.guid.core;
+package com.github.ppzxc.guid;
 
-import static com.github.ppzxc.guid.core.GuidGenerator.APPLICATION_EPOCH_TIME;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE;
-import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE;
+import static com.github.ppzxc.guid.GuidGenerator.APPLICATION_EPOCH_TIME;
+import static com.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE;
+import static com.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE;
+import static com.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE;
 
 import java.sql.Timestamp;
 

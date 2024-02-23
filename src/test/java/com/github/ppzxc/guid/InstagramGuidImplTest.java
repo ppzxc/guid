@@ -1,9 +1,5 @@
-package com.github.ppzxc.guid.core;
+package com.github.ppzxc.guid;
 
-import static com.github.ppzxc.guid.core.InstagramGuidGeneratorImpl.MAXIMUM_SEQUENCE;
-import static com.github.ppzxc.guid.core.InstagramGuidGeneratorImpl.MAXIMUM_SHARD_ID;
-import static com.github.ppzxc.guid.core.InstagramGuidGeneratorImpl.SEQUENCE_BIT_SIZE;
-import static com.github.ppzxc.guid.core.InstagramGuidGeneratorImpl.SHARD_ID_BIT_SIZE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.security.SecureRandom;
@@ -25,11 +21,11 @@ class InstagramGuidImplTest {
   void should_equals_when_given() {
     // given
     long currentTimestamp = System.currentTimeMillis();
-    long partitionId = range(MAXIMUM_SHARD_ID);
-    long sequence = range(MAXIMUM_SEQUENCE);
+    long partitionId = range(InstagramGuidGeneratorImpl.MAXIMUM_SHARD_ID);
+    long sequence = range(InstagramGuidGeneratorImpl.MAXIMUM_SEQUENCE);
     long id = currentTimestamp - GuidGenerator.APPLICATION_EPOCH_TIME
-      << SHARD_ID_BIT_SIZE + SEQUENCE_BIT_SIZE
-      | partitionId << SEQUENCE_BIT_SIZE
+      << InstagramGuidGeneratorImpl.SHARD_ID_BIT_SIZE + InstagramGuidGeneratorImpl.SEQUENCE_BIT_SIZE
+      | partitionId << InstagramGuidGeneratorImpl.SEQUENCE_BIT_SIZE
       | sequence;
 
     // when
