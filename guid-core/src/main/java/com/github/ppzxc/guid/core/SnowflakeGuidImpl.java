@@ -7,7 +7,7 @@ import static com.github.ppzxc.guid.core.SnowflakeGuidGeneratorImpl.SEQUENCE_BIT
 
 import java.sql.Timestamp;
 
-class SnowflakeGuidImpl extends AbstractGuid implements SnowflakeGuid {
+class SnowflakeGuidImpl extends AbstractGuid {
 
   SnowflakeGuidImpl(long id) {
     super(id, APPLICATION_EPOCH_TIME, EPOCH_BIT_SIZE, NODE_ID_BIT_SIZE, SEQUENCE_BIT_SIZE);
@@ -17,10 +17,5 @@ class SnowflakeGuidImpl extends AbstractGuid implements SnowflakeGuid {
   public String toString() {
     return "SnowflakeGuid{id=%d, timestamp=%s, nodeId=%d, sequence=%d}".formatted(guid(), new Timestamp(timestamp()),
       identifier(), sequence());
-  }
-
-  @Override
-  public long nodeId() {
-    return identifier();
   }
 }

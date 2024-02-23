@@ -20,7 +20,7 @@ package com.github.ppzxc.guid.core;
  *
  * <a href="https://github.com/callicoder/java-snowflake/tree/master">Reference</a>
  */
-public class SnowflakeGuidGeneratorImpl extends AbstractGuidGenerator implements SnowflakeGuidGenerator {
+public class SnowflakeGuidGeneratorImpl extends AbstractGuidGenerator {
 
   public static final int UNUSED_BITS = 1;
   public static final int EPOCH_BIT_SIZE = 41;
@@ -49,10 +49,5 @@ public class SnowflakeGuidGeneratorImpl extends AbstractGuidGenerator implements
   @Override
   public Guid create(long id) {
     return new SnowflakeGuidImpl(id);
-  }
-
-  @Override
-  public SnowflakeGuid nextSnowflakeGuid() {
-    return (SnowflakeGuid) next();
   }
 }

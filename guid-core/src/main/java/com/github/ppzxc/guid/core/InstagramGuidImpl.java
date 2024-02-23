@@ -7,7 +7,7 @@ import static com.github.ppzxc.guid.core.InstagramGuidGeneratorImpl.SHARD_ID_BIT
 
 import java.sql.Timestamp;
 
-public class InstagramGuidImpl extends AbstractGuid implements InstagramGuid {
+public class InstagramGuidImpl extends AbstractGuid {
 
   public InstagramGuidImpl(long id) {
     super(id, APPLICATION_EPOCH_TIME, EPOCH_BIT_SIZE, SHARD_ID_BIT_SIZE, SEQUENCE_BIT_SIZE);
@@ -17,10 +17,5 @@ public class InstagramGuidImpl extends AbstractGuid implements InstagramGuid {
   public String toString() {
     return "InstagramGuid{id=%d, timestamp=%s, shardId=%d, sequence=%d}".formatted(getId(),
       new Timestamp(timestamp()), identifier(), sequence());
-  }
-
-  @Override
-  public long shardId() {
-    return identifier();
   }
 }

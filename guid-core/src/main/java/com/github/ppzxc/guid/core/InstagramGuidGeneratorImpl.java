@@ -28,7 +28,7 @@ package com.github.ppzxc.guid.core;
  *   - 자동 증분값으로 동일한 ms (*.**1) 시간대에 생성 가능한 최대 ID는 4,096개
  *  </pre>
  */
-public class InstagramGuidGeneratorImpl extends AbstractGuidGenerator implements InstagramGuidGenerator {
+public class InstagramGuidGeneratorImpl extends AbstractGuidGenerator {
 
   public static final int EPOCH_BIT_SIZE = 41;
   public static final int SHARD_ID_BIT_SIZE = 10;
@@ -54,10 +54,5 @@ public class InstagramGuidGeneratorImpl extends AbstractGuidGenerator implements
   @Override
   public Guid create(long id) {
     return new InstagramGuidImpl(id);
-  }
-
-  @Override
-  public InstagramGuid nextInstagramGuid() {
-    return (InstagramGuid) next();
   }
 }
