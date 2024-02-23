@@ -1,4 +1,4 @@
-package com.github.ppzxc.guid.core;
+package com.github.ppzxc.guid;
 
 public abstract class AbstractGuidGenerator implements GuidGenerator {
 

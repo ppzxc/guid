@@ -1,4 +1,4 @@
-package com.github.ppzxc.guid.core;
+package com.github.ppzxc.guid;
 
 import java.sql.Timestamp;
 
