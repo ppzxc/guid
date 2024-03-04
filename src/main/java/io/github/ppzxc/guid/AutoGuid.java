@@ -1,11 +1,19 @@
-package com.github.ppzxc.guid;
+package io.github.ppzxc.guid;
 
-import static com.github.ppzxc.guid.GuidGenerator.APPLICATION_EPOCH_TIME;
+import static io.github.ppzxc.guid.GuidGenerator.APPLICATION_EPOCH_TIME;
 
 import java.sql.Timestamp;
 
+/**
+ * The type Auto guid.
+ */
 public class AutoGuid extends AbstractGuid {
 
+  /**
+   * Instantiates a new Auto guid.
+   *
+   * @param id the id
+   */
   public AutoGuid(long id) {
     super(id, APPLICATION_EPOCH_TIME, SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE, SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE, SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE);
   }

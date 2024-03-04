@@ -1,5 +1,8 @@
-package com.github.ppzxc.guid;
+package io.github.ppzxc.guid;
 
+/**
+ * The type Abstract guid generator.
+ */
 public abstract class AbstractGuidGenerator implements GuidGenerator {
 
   private final int epochBitSize;
@@ -13,6 +16,16 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
   private long lastTimestamp;
   private long sequence;
 
+  /**
+   * Instantiates a new Abstract guid generator.
+   *
+   * @param epochBitSize        the epoch bit size
+   * @param identifierBitSize   the identifier bit size
+   * @param sequenceBitSize     the sequence bit size
+   * @param maximumIdentifierId the maximum identifier id
+   * @param maximumSequence     the maximum sequence
+   * @param applicationEpoch    the application epoch
+   */
   protected AbstractGuidGenerator(int epochBitSize, int identifierBitSize, int sequenceBitSize, long maximumIdentifierId,
     long maximumSequence, long applicationEpoch) {
     this.epochBitSize = epochBitSize;
@@ -26,8 +39,19 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
     this.sequence = -1L;
   }
 
+  /**
+   * Gets identifier.
+   *
+   * @return the identifier
+   */
   public abstract long getIdentifier();
 
+  /**
+   * Create guid.
+   *
+   * @param id the id
+   * @return the guid
+   */
   public abstract Guid create(long id);
 
   @Override

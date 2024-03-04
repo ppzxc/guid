@@ -1,4 +1,4 @@
-package com.github.ppzxc.guid;
+package io.github.ppzxc.guid;
 
 /**
  * <pre>
@@ -22,17 +22,49 @@ package com.github.ppzxc.guid;
  */
 public class SnowflakeGuidGeneratorImpl extends AbstractGuidGenerator {
 
+  /**
+   * The constant UNUSED_BITS.
+   */
   public static final int UNUSED_BITS = 1;
+  /**
+   * The constant EPOCH_BIT_SIZE.
+   */
   public static final int EPOCH_BIT_SIZE = 41;
+  /**
+   * The constant NODE_ID_BIT_SIZE.
+   */
   public static final int NODE_ID_BIT_SIZE = 10;
+  /**
+   * The constant SEQUENCE_BIT_SIZE.
+   */
   public static final int SEQUENCE_BIT_SIZE = 12;
+  /**
+   * The constant TOTAL_BITS.
+   */
   public static final int TOTAL_BITS = EPOCH_BIT_SIZE + NODE_ID_BIT_SIZE + SEQUENCE_BIT_SIZE;
+  /**
+   * The constant MAX_NODE_ID.
+   */
   public static final long MAX_NODE_ID = (1L << NODE_ID_BIT_SIZE) - 1;
+  /**
+   * The constant MAX_SEQUENCE.
+   */
   public static final long MAX_SEQUENCE = (1L << SEQUENCE_BIT_SIZE) - 1;
+  /**
+   * The constant NODE_ID_BIT_WISE.
+   */
   public static final long NODE_ID_BIT_WISE = Long.parseLong("1".repeat(NODE_ID_BIT_SIZE), 2);
+  /**
+   * The constant SEQUENCE_BIT_WISE.
+   */
   public static final long SEQUENCE_BIT_WISE = Long.parseLong("1".repeat(SEQUENCE_BIT_SIZE), 2);
   private final long nodeId;
 
+  /**
+   * Instantiates a new Snowflake guid generator.
+   *
+   * @param nodeId the node id
+   */
   public SnowflakeGuidGeneratorImpl(long nodeId) {
     super(EPOCH_BIT_SIZE, NODE_ID_BIT_SIZE, SEQUENCE_BIT_SIZE, MAX_NODE_ID, MAX_SEQUENCE, APPLICATION_EPOCH_TIME);
     if (nodeId < 0 || nodeId > MAX_NODE_ID) {
