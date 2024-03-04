@@ -1,7 +1,7 @@
 plugins {
     `java-library`
     signing
-    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.2"
+    alias(libs.plugins.net.thebugmc.gradle.sonatype.central.portal.publisher)
 }
 
 group = providers.gradleProperty("GROUP_NAME").get()
@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-    testImplementation("org.assertj:assertj-core:3.24.2")
+    testImplementation(rootProject.libs.org.junit.jupiter)
+    testImplementation(rootProject.libs.org.assertj.core)
 }
 
 tasks.withType<Test> {
