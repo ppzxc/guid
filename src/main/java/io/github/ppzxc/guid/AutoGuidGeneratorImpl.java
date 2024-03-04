@@ -1,7 +1,10 @@
-package com.github.ppzxc.guid;
+package io.github.ppzxc.guid;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * The type Auto guid generator.
+ */
 public final class AutoGuidGeneratorImpl extends AbstractGuidGenerator implements GuidGenerator {
 
   private static final long CALIBRATION_MAX = SnowflakeGuidGeneratorImpl.MAX_NODE_ID + 1;
@@ -12,10 +15,21 @@ public final class AutoGuidGeneratorImpl extends AbstractGuidGenerator implement
     this.autoIncrement = autoIncrement;
   }
 
+  /**
+   * Zero auto guid generator.
+   *
+   * @return the auto guid generator
+   */
   public static AutoGuidGeneratorImpl zero() {
     return new AutoGuidGeneratorImpl(new AtomicLong(0L));
   }
 
+  /**
+   * Of auto guid generator.
+   *
+   * @param initialValue the initial value
+   * @return the auto guid generator
+   */
   public static AutoGuidGeneratorImpl of(long initialValue) {
     return new AutoGuidGeneratorImpl(new AtomicLong(initialValue));
   }

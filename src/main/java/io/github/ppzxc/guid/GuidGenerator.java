@@ -1,4 +1,4 @@
-package com.github.ppzxc.guid;
+package io.github.ppzxc.guid;
 
 /**
  * <pre>
@@ -11,7 +11,15 @@ package com.github.ppzxc.guid;
  */
 public interface GuidGenerator {
 
+  /**
+   * The constant APPLICATION_EPOCH_TIME.
+   */
   long APPLICATION_EPOCH_TIME = 1704067200000L;
 
+  /**
+   * Next guid.
+   *
+   * @return the guid
+   */
   Guid next();
 }
