@@ -15,12 +15,13 @@ public class AutoGuid extends AbstractGuid {
    * @param id the id
    */
   public AutoGuid(long id) {
-    super(id, APPLICATION_EPOCH_TIME, SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE, SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE, SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE);
+    super(id, APPLICATION_EPOCH_TIME, SnowflakeGuidGeneratorImpl.EPOCH_BIT_SIZE,
+      SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE, SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE);
   }
 
   @Override
   public String toString() {
-    return "AutoGuid{id=%d, timestamp=%s, shardId=%d, sequence=%d}".formatted(getId(),
-      new Timestamp(timestamp()), identifier(), sequence());
+    return String.format("AutoGuid{id=%d, timestamp=%s, shardId=%d, sequence=%d}", guid(), new Timestamp(timestamp()),
+      identifier(), sequence());
   }
 }

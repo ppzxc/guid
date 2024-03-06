@@ -87,14 +87,14 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
         | sequence);
   }
 
-  private long getNextTimestamp(long currentTimestamp) {
+  protected long getNextTimestamp(long currentTimestamp) {
     while (currentTimestamp == lastTimestamp) {
       currentTimestamp = getCurrentTimestamp();
     }
     return currentTimestamp;
   }
 
-  private long getCurrentTimestamp() {
+  protected long getCurrentTimestamp() {
     return System.currentTimeMillis() - applicationEpoch;
   }
 }

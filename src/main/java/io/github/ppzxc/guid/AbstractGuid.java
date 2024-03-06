@@ -1,6 +1,7 @@
 package io.github.ppzxc.guid;
 
-import java.sql.Timestamp;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * The type Abstract guid.
@@ -24,14 +25,21 @@ public abstract class AbstractGuid implements Guid {
    * @param identifierBitSize    the identifier bit size
    * @param sequenceBitSize      the sequence bit size
    */
-  public AbstractGuid(long id, long applicationEpochTime, int epochBitSize, int identifierBitSize, int sequenceBitSize) {
+  public AbstractGuid(long id, long applicationEpochTime, int epochBitSize, int identifierBitSize,
+    int sequenceBitSize) {
     this.id = id;
     this.applicationEpochTime = applicationEpochTime;
     this.timestampBitSize = epochBitSize;
     this.identifierBitSize = identifierBitSize;
     this.sequenceBitSize = sequenceBitSize;
-    this.identifierBitWise = Long.parseLong("1".repeat(identifierBitSize), 2);
-    this.sequenceBitWise = Long.parseLong("1".repeat(sequenceBitSize), 2);
+    this.identifierBitWise = Long.parseLong(joining(identifierBitSize), 2);
+    this.sequenceBitWise = Long.parseLong(joining(sequenceBitSize), 2);
+  }
+
+  private String joining(int size) {
+    return IntStream.range(0, size)
+      .mapToObj(ignored -> "1")
+      .collect(Collectors.joining());
   }
 
   @Override
@@ -52,74 +60,5 @@ public abstract class AbstractGuid implements Guid {
   @Override
   public long sequence() {
     return id & sequenceBitWise;
-  }
-
-  @Override
-  public String toString() {
-    return "AbstractGuid{id=%d, timestamp=%s, identifier=%d, sequence=%d}".formatted(id,
-      new Timestamp(timestamp()), identifier(), sequence());
-  }
-
-  /**
-   * Gets id.
-   *
-   * @return the id
-   */
-  public long getId() {
-    return id;
-  }
-
-  /**
-   * Gets application epoch time.
-   *
-   * @return the application epoch time
-   */
-  public long getApplicationEpochTime() {
-    return applicationEpochTime;
-  }
-
-  /**
-   * Gets timestamp bit size.
-   *
-   * @return the timestamp bit size
-   */
-  public int getTimestampBitSize() {
-    return timestampBitSize;
-  }
-
-  /**
-   * Gets identifier bit size.
-   *
-   * @return the identifier bit size
-   */
-  public int getIdentifierBitSize() {
-    return identifierBitSize;
-  }
-
-  /**
-   * Gets sequence bit size.
-   *
-   * @return the sequence bit size
-   */
-  public int getSequenceBitSize() {
-    return sequenceBitSize;
-  }
-
-  /**
-   * Gets identifier bit wise.
-   *
-   * @return the identifier bit wise
-   */
-  public long getIdentifierBitWise() {
-    return identifierBitWise;
-  }
-
-  /**
-   * Gets sequence bit wise.
-   *
-   * @return the sequence bit wise
-   */
-  public long getSequenceBitWise() {
-    return sequenceBitWise;
   }
 }

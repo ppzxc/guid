@@ -53,11 +53,11 @@ public class SnowflakeGuidGeneratorImpl extends AbstractGuidGenerator {
   /**
    * The constant NODE_ID_BIT_WISE.
    */
-  public static final long NODE_ID_BIT_WISE = Long.parseLong("1".repeat(NODE_ID_BIT_SIZE), 2);
+  public static final long NODE_ID_BIT_WISE = Long.parseLong("1111111111", 2);
   /**
    * The constant SEQUENCE_BIT_WISE.
    */
-  public static final long SEQUENCE_BIT_WISE = Long.parseLong("1".repeat(SEQUENCE_BIT_SIZE), 2);
+  public static final long SEQUENCE_BIT_WISE = Long.parseLong("111111111111", 2);
   private final long nodeId;
 
   /**
