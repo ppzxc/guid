@@ -15,12 +15,13 @@ public class InstagramGuidImpl extends AbstractGuid {
    * @param id the id
    */
   public InstagramGuidImpl(long id) {
-    super(id, APPLICATION_EPOCH_TIME, InstagramGuidGeneratorImpl.EPOCH_BIT_SIZE, InstagramGuidGeneratorImpl.SHARD_ID_BIT_SIZE, InstagramGuidGeneratorImpl.SEQUENCE_BIT_SIZE);
+    super(id, APPLICATION_EPOCH_TIME, InstagramGuidGeneratorImpl.EPOCH_BIT_SIZE,
+      InstagramGuidGeneratorImpl.SHARD_ID_BIT_SIZE, InstagramGuidGeneratorImpl.SEQUENCE_BIT_SIZE);
   }
 
   @Override
   public String toString() {
-    return "InstagramGuid{id=%d, timestamp=%s, shardId=%d, sequence=%d}".formatted(getId(),
+    return String.format("InstagramGuid{id=%d, timestamp=%s, shardId=%d, sequence=%d}", guid(),
       new Timestamp(timestamp()), identifier(), sequence());
   }
 }
