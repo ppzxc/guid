@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 import io.github.ppzxc.fixh.IntUtils;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 class InstagramGuidGeneratorImplTest {
 
@@ -27,5 +28,10 @@ class InstagramGuidGeneratorImplTest {
     int shardId = IntUtils.giveMeOne(1, 1023);
     Guid guid = new InstagramGuidGeneratorImpl(shardId).next();
     assertThat(guid.identifier()).isEqualTo(shardId);
+  }
+
+  @Test
+  void should_throw_exception_when_invalid_shard_id() {
+    assertThatCode(() -> new InstagramGuidGeneratorImpl(-1)).isInstanceOf(IllegalArgumentException.class);
   }
 }

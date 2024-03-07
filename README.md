@@ -1,3 +1,5 @@
+[![Release](https://github.com/ppzxc/guid/actions/workflows/release.yml/badge.svg)](https://github.com/ppzxc/guid/actions/workflows/release.yml)
+
 # id
 
 - 구분자.
