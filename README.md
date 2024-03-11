@@ -36,6 +36,8 @@
 
 # Snowflake ID
 
+- [Snowflake ID]([https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c](https://en.wikipedia.org/wiki/Snowflake_ID))
+
 ```text
   0                   1                   2                   3
   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -53,6 +55,8 @@
 - Sequence Number 12 bit
 
 # Instagram ID
+
+- [Sharding & IDs at Instagram](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)
 
 ```text
   0                   1                   2                   3
