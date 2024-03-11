@@ -1,16 +1,16 @@
 package io.github.ppzxc.guid;
 
-import static io.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.MAX_NODE_ID;
-import static io.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.MAX_SEQUENCE;
-import static io.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.NODE_ID_BIT_SIZE;
-import static io.github.ppzxc.guid.SnowflakeGuidGeneratorImpl.SEQUENCE_BIT_SIZE;
+import static io.github.ppzxc.guid.SnowflakeGuidGenerator.MAX_NODE_ID;
+import static io.github.ppzxc.guid.SnowflakeGuidGenerator.MAX_SEQUENCE;
+import static io.github.ppzxc.guid.SnowflakeGuidGenerator.NODE_ID_BIT_SIZE;
+import static io.github.ppzxc.guid.SnowflakeGuidGenerator.SEQUENCE_BIT_SIZE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
-class SnowflakeGuidImplTest {
+class SnowflakeGuidTest {
 
   @DisplayName("생성된 ID 는 SnowflakeGuid 객체에서 파싱할 수 있다.")
   @RepeatedTest(10)
@@ -24,7 +24,7 @@ class SnowflakeGuidImplTest {
       | sequence;
 
     // when
-    SnowflakeGuidImpl actual = new SnowflakeGuidImpl(id);
+    SnowflakeGuid actual = new SnowflakeGuid(id);
 
     // then
     assertThat(actual.guid()).isEqualTo(id);

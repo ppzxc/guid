@@ -9,13 +9,13 @@ class AbstractGuidTest {
 
   @Test
   void should_created() {
-    AutoGuidGeneratorImpl generator = AutoGuidGeneratorImpl.zero();
+    AutoIncrementSnowflakeGuidGenerator generator = AutoIncrementSnowflakeGuidGenerator.zero();
     assertThat(generator.next().toString()).isNotBlank();
   }
 
   @Test
   void name() {
-    AutoGuidGeneratorImpl generator = AutoGuidGeneratorImpl.zero();
+    AutoIncrementSnowflakeGuidGenerator generator = AutoIncrementSnowflakeGuidGenerator.zero();
     for (int i = 0; i < IntUtils.giveMeOne(512, 1024); i++) {
       assertThat(generator.next().toString()).isNotBlank();
     }
