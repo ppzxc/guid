@@ -8,7 +8,11 @@ class AbstractGuidGeneratorIdentifierTest {
 
   @Test
   void should_throw_exception() {
-    assertThatCode(() -> new TestGenerator().next())
+    // given
+    TestGenerator given = new TestGenerator();
+
+    // when, then
+    assertThatCode(given::next)
       .isInstanceOf(IllegalArgumentException.class)
       .hasMessage("not support range: -2");
   }

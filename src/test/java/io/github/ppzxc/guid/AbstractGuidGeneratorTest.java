@@ -8,7 +8,11 @@ class AbstractGuidGeneratorTest {
 
   @Test
   void should_throw_exception_when_time_back_wards() {
-    assertThatCode(() -> new TestGenerator().next())
+    // given
+    TestGenerator given = new TestGenerator();
+
+    // when, then
+    assertThatCode(given::next)
       .isInstanceOf(IllegalStateException.class)
       .hasMessage("Clock moved backwards.");
   }

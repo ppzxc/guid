@@ -8,24 +8,45 @@ import java.util.stream.IntStream;
  */
 public abstract class AbstractGuid implements Guid {
 
-  private final long id;
-  private final long applicationEpochTime;
-  private final int timestampBitSize;
-  private final int identifierBitSize;
-  private final int sequenceBitSize;
-  private final long identifierBitWise;
-  private final long sequenceBitWise;
+  /**
+   * The Id.
+   */
+  protected final long id;
+  /**
+   * The Application epoch time.
+   */
+  protected final long applicationEpochTime;
+  /**
+   * The Timestamp bit size.
+   */
+  protected final int timestampBitSize;
+  /**
+   * The Identifier bit size.
+   */
+  protected final int identifierBitSize;
+  /**
+   * The Sequence bit size.
+   */
+  protected final int sequenceBitSize;
+  /**
+   * The Identifier bit wise.
+   */
+  protected final long identifierBitWise;
+  /**
+   * The Sequence bit wise.
+   */
+  protected final long sequenceBitWise;
 
   /**
    * Instantiates a new Abstract guid.
    *
-   * @param id                   the id
+   * @param id the id
    * @param applicationEpochTime the application epoch time
-   * @param epochBitSize         the epoch bit size
-   * @param identifierBitSize    the identifier bit size
-   * @param sequenceBitSize      the sequence bit size
+   * @param epochBitSize the epoch bit size
+   * @param identifierBitSize the identifier bit size
+   * @param sequenceBitSize the sequence bit size
    */
-  public AbstractGuid(long id, long applicationEpochTime, int epochBitSize, int identifierBitSize,
+  protected AbstractGuid(long id, long applicationEpochTime, int epochBitSize, int identifierBitSize,
     int sequenceBitSize) {
     this.id = id;
     this.applicationEpochTime = applicationEpochTime;

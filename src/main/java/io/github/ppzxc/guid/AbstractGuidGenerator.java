@@ -12,19 +12,18 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
   private final long maximumIdentifierId;
   private final long maximumSequence;
   private final long applicationEpoch;
-
   private long lastTimestamp;
   private long sequence;
 
   /**
    * Instantiates a new Abstract guid generator.
    *
-   * @param epochBitSize        the epoch bit size
-   * @param identifierBitSize   the identifier bit size
-   * @param sequenceBitSize     the sequence bit size
+   * @param epochBitSize the epoch bit size
+   * @param identifierBitSize the identifier bit size
+   * @param sequenceBitSize the sequence bit size
    * @param maximumIdentifierId the maximum identifier id
-   * @param maximumSequence     the maximum sequence
-   * @param applicationEpoch    the application epoch
+   * @param maximumSequence the maximum sequence
+   * @param applicationEpoch the application epoch
    */
   protected AbstractGuidGenerator(int epochBitSize, int identifierBitSize, int sequenceBitSize, long maximumIdentifierId,
     long maximumSequence, long applicationEpoch) {
@@ -87,6 +86,12 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
         | sequence);
   }
 
+  /**
+   * Gets next timestamp.
+   *
+   * @param currentTimestamp the current timestamp
+   * @return the next timestamp
+   */
   protected long getNextTimestamp(long currentTimestamp) {
     while (currentTimestamp == lastTimestamp) {
       currentTimestamp = getCurrentTimestamp();
@@ -94,6 +99,11 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
     return currentTimestamp;
   }
 
+  /**
+   * Gets current timestamp.
+   *
+   * @return the current timestamp
+   */
   protected long getCurrentTimestamp() {
     return System.currentTimeMillis() - applicationEpoch;
   }
