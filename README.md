@@ -54,6 +54,10 @@
 - Custom Id 10 bit
 - Sequence Number 12 bit
 
+# Bucket Snowflake ID
+
+- [how discord stores billions of messages](https://discord.com/blog/how-discord-stores-billions-of-messages)
+
 # Instagram ID
 
 - [Sharding & IDs at Instagram](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)
