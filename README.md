@@ -70,6 +70,14 @@
 - Custom Id 13 bit (1024)
 - Sequence Number 10 bit (1024)
 
+# usage
+
+- [sonatype](https://central.sonatype.com/artifact/io.github.ppzxc/guid)
+
+```
+implementation("io.github.ppzxc:guid:X.X.X")
+```
+
 # reference
 
 - [Sharding & IDs at Instagram](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)
