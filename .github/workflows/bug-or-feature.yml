@@ -1,8 +1,8 @@
-name: Feature
+name: bug or feature
 
 on:
   push:
-    branches: [ "feature/*" ]
+    branches: [ "*-feature-*", "*-bug-*" ]
 
 jobs:
   feature:
