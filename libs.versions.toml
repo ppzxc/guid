@@ -1,5 +1,5 @@
 [versions]
-io-github-ppzxc-fixh = "0.0.14"
+io-github-ppzxc-fixh = "0.0.17"
 org-junit-jupiter = "5.10.2"
 org-assertj-core = "3.25.3"
 net-thebugmc-gradle-sonatype-central-portal-publisher = "1.2.2"

@@ -2,7 +2,7 @@ name: bug or feature
 
 on:
   push:
-    branches: [ "*-feature-*", "*-bug-*" ]
+    branches: [ "*-feature-*", "*-bug-*", "*-bugfix-*" ]
 
 jobs:
   feature:
