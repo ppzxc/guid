@@ -1,18 +1,9 @@
 package io.github.ppzxc.guid;
 
-/**
- * The type Bucketed snowflake guid.
- */
 public class BucketedSnowflakeGuid extends SnowflakeGuid {
 
   private final long bucketSize;
 
-  /**
-   * Instantiates a new Bucketed snowflake guid.
-   *
-   * @param id         the id
-   * @param bucketSize the bucket size
-   */
   public BucketedSnowflakeGuid(long id, long bucketSize) {
     super(id);
     this.bucketSize = bucketSize;
@@ -30,11 +21,6 @@ public class BucketedSnowflakeGuid extends SnowflakeGuid {
       "} ";
   }
 
-  /**
-   * Gets bucket.
-   *
-   * @return the bucket
-   */
   public long getBucket() {
     return timestamp() / bucketSize;
   }
