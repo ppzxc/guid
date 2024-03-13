@@ -8,9 +8,6 @@ import static io.github.ppzxc.guid.SnowflakeGuidGenerator.SEQUENCE_BIT_SIZE;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-/**
- * The type Auto increment snowflake guid generator.
- */
 public final class AutoIncrementSnowflakeGuidGenerator extends AbstractGuidGenerator implements GuidGenerator {
 
   private static final long CALIBRATION_MAX = MAX_NODE_ID + 1;
@@ -21,21 +18,10 @@ public final class AutoIncrementSnowflakeGuidGenerator extends AbstractGuidGener
     this.autoIncrement = autoIncrement;
   }
 
-  /**
-   * Zero auto increment snowflake guid generator.
-   *
-   * @return the auto increment snowflake guid generator
-   */
   public static AutoIncrementSnowflakeGuidGenerator zero() {
     return new AutoIncrementSnowflakeGuidGenerator(new AtomicLong(0L));
   }
 
-  /**
-   * Of auto increment snowflake guid generator.
-   *
-   * @param initialValue the initial value
-   * @return the auto increment snowflake guid generator
-   */
   public static AutoIncrementSnowflakeGuidGenerator of(long initialValue) {
     return new AutoIncrementSnowflakeGuidGenerator(new AtomicLong(initialValue));
   }

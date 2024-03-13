@@ -3,49 +3,16 @@ package io.github.ppzxc.guid;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-/**
- * The type Abstract guid.
- */
 public abstract class AbstractGuid implements Guid {
 
-  /**
-   * The Id.
-   */
   protected final long id;
-  /**
-   * The Application epoch time.
-   */
   protected final long applicationEpochTime;
-  /**
-   * The Timestamp bit size.
-   */
   protected final int timestampBitSize;
-  /**
-   * The Identifier bit size.
-   */
   protected final int identifierBitSize;
-  /**
-   * The Sequence bit size.
-   */
   protected final int sequenceBitSize;
-  /**
-   * The Identifier bit wise.
-   */
   protected final long identifierBitWise;
-  /**
-   * The Sequence bit wise.
-   */
   protected final long sequenceBitWise;
 
-  /**
-   * Instantiates a new Abstract guid.
-   *
-   * @param id the id
-   * @param applicationEpochTime the application epoch time
-   * @param epochBitSize the epoch bit size
-   * @param identifierBitSize the identifier bit size
-   * @param sequenceBitSize the sequence bit size
-   */
   protected AbstractGuid(long id, long applicationEpochTime, int epochBitSize, int identifierBitSize,
     int sequenceBitSize) {
     this.id = id;
