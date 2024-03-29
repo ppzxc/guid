@@ -18,8 +18,8 @@ class AutoIncrementSnowflakeGuidGeneratorTest {
     Guid actual = given.next();
 
     // then
-    assertThat(actual.guid()).isNotNegative().isPositive();
-    assertThat(actual.timestamp()).isGreaterThanOrEqualTo(givenTimestamp);
+    assertThat(actual.toLong()).isNotNegative().isPositive();
+    assertThat(actual.epoch()).isGreaterThanOrEqualTo(givenTimestamp);
     assertThat(actual.identifier()).isZero();
     assertThat(actual.sequence()).isZero();
   }

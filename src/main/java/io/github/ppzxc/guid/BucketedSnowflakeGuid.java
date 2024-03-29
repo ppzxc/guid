@@ -22,6 +22,6 @@ public class BucketedSnowflakeGuid extends SnowflakeGuid {
   }
 
   public long getBucket() {
-    return timestamp() / bucketSize;
+    return epoch() / bucketSize;
   }
 }

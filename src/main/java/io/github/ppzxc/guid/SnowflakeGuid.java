@@ -15,7 +15,7 @@ public class SnowflakeGuid extends AbstractGuid {
   public String toString() {
     return "SnowflakeGuid{" +
       "id=" + id +
-      ", timestamp=" + timestampBitSize +
+      ", epoch=" + timestampBitSize +
       ", nodeId=" + identifier() +
       ", sequence=" + sequence() +
       "} ";

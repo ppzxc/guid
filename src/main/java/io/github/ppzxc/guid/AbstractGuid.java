@@ -31,12 +31,12 @@ public abstract class AbstractGuid implements Guid {
   }
 
   @Override
-  public long guid() {
+  public long toLong() {
     return id;
   }
 
   @Override
-  public long timestamp() {
+  public long epoch() {
     return (id >> (identifierBitSize + sequenceBitSize)) + applicationEpochTime;
   }
 

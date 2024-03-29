@@ -2,9 +2,9 @@ package io.github.ppzxc.guid;
 
 public interface Guid {
 
-  long guid();
+  long toLong();
 
-  long timestamp();
+  long epoch();
 
   long identifier();
 

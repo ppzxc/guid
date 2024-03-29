@@ -15,11 +15,9 @@ public class InstagramGuid extends AbstractGuid {
   public String toString() {
     return "InstagramGuid{" +
       "id=" + id +
-      ", timestamp=" + timestamp() +
+      ", epoch=" + epoch() +
       ", shardId=" + identifier() +
       ", sequence=" + sequence() +
-      ", sequenceBitSize=" + sequenceBitSize +
-      ", identifierBitWise=" + identifierBitWise +
-      "} " + super.toString();
+      "} ";
   }
 }
