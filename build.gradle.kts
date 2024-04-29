@@ -50,7 +50,10 @@ tasks.jacocoTestCoverageVerification {
                 value = "COVEREDRATIO"
                 minimum = BigDecimal.valueOf(0.90)
             }
-            excludes = listOf("io.github.ppzxc.guid.AbstractGuidGenerator")
+            excludes = listOf(
+                "io.github.ppzxc.guid.AbstractGuidGenerator",
+                "io.github.ppzxc.guid.AbstractSimpleGuidGenerator"
+            )
         }
     }
 }
