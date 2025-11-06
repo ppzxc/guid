@@ -42,8 +42,7 @@ public abstract class AbstractSimpleGuidGenerator implements GuidGenerator {
     lastTimestamp = currentTimestamp;
 
     // fifth step: calculate id
-    return create(currentTimestamp << totalBitSize - epochBitSize
-        | sequence);
+    return create(currentTimestamp << totalBitSize - epochBitSize | sequence);
   }
 
   protected long getNextTimestamp(long currentTimestamp) {

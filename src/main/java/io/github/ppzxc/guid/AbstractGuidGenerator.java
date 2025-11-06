@@ -3,7 +3,6 @@ package io.github.ppzxc.guid;
 public abstract class AbstractGuidGenerator implements GuidGenerator {
 
   private final int epochBitSize;
-  private final int identifierBitSize;
   private final int sequenceBitSize;
   private final int totalBitSize;
   private final long maximumIdentifierId;
@@ -15,7 +14,6 @@ public abstract class AbstractGuidGenerator implements GuidGenerator {
   protected AbstractGuidGenerator(int epochBitSize, int identifierBitSize, int sequenceBitSize, long maximumIdentifierId,
     long maximumSequence, long applicationEpoch) {
     this.epochBitSize = epochBitSize;
-    this.identifierBitSize = identifierBitSize;
     this.sequenceBitSize = sequenceBitSize;
     this.totalBitSize = epochBitSize + identifierBitSize + sequenceBitSize;
     this.maximumIdentifierId = maximumIdentifierId;
